@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fixora - Home Services</title>
+
+<style>
+
+/* ===== GLOBAL ===== */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI, sans-serif;
+}
+
+body{
+background:#f5f7fb;
+color:#1e293b;
+}
+
+/* ===== NAVBAR ===== */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:#0f172a;
+color:white;
+}
+
+nav a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+}
+
+/* ===== HERO ===== */
+.hero{
+height:90vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(135deg,#2563eb,#06b6d4);
+color:white;
+padding:20px;
+}
+
+.hero h1{
+font-size:42px;
+margin-bottom:15px;
+}
+
+.hero button{
+padding:14px 28px;
+border:none;
+border-radius:6px;
+background:white;
+color:#2563eb;
+font-size:16px;
+cursor:pointer;
+}
+
+/* ===== SERVICES ===== */
+.services{
+padding:60px 20px;
+text-align:center;
+}
+
+.service-grid{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.card{
+background:white;
+padding:30px;
+width:240px;
+border-radius:12px;
+box-shadow:0 6px 18px rgba(0,0,0,0.1);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+/* ===== HOW IT WORKS ===== */
+.how{
+background:#e2e8f0;
+padding:60px 20px;
+text-align:center;
+}
+
+.steps{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.step{
+background:white;
+padding:20px;
+border-radius:10px;
+width:220px;
+}
+
+/* ===== BOOKING ===== */
+.booking{
+padding:60px 20px;
+text-align:center;
+}
+
+.booking input,
+.booking select{
+padding:10px;
+margin:10px;
+width:200px;
+}
+
+.booking button{
+padding:12px 25px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* ===== REVIEWS ===== */
+.reviews{
+padding:60px;
+text-align:center;
+}
+
+.review-box{
+background:white;
+max-width:400px;
+margin:auto;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+/* ===== PROVIDER ===== */
+.provider{
+background:#2563eb;
+color:white;
+text-align:center;
+padding:60px;
+}
+
+.provider button{
+background:white;
+color:#2563eb;
+border:none;
+padding:12px 20px;
+border-radius:6px;
+}
+
+/* ===== FOOTER ===== */
+footer{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+.hero h1{
+font-size:28px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+<h2>Fixora</h2>
+<div>
+<a href="#">Home</a>
+<a href="#">Services</a>
+<a href="#">Login</a>
+</div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+<h1>Trusted Home Services at Your Doorstep</h1>
+<p>Electricians • Plumbers • Cleaners</p>
+<button onclick="scrollToBooking()">Book Now</button>
+</section>
+
+<!-- POPULAR SERVICES -->
+<section class="services">
+<h2>Popular Services</h2>
+
+<div class="service-grid">
+<div class="card">⚡ Electrician</div>
+<div class="card">🚿 Plumber</div>
+<div class="card">🧹 Home Cleaning</div>
+</div>
+
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+<h2>How It Works</h2>
+
+<div class="steps">
+<div class="step">1️⃣ Choose Service</div>
+<div class="step">2️⃣ Select Date & Time</div>
+<div class="step">3️⃣ Confirm Booking</div>
+</div>
+
+</section>
+
+<!-- BOOKING SYSTEM -->
+<section class="booking" id="booking">
+<h2>Book a Service</h2>
+
+<select id="service">
+<option>Electrician</option>
+<option>Plumber</option>
+<option>Cleaner</option>
+</select>
+
+<input type="date" id="date">
+<input type="time" id="time">
+
+<br>
+<button onclick="bookService()">Confirm Booking</button>
+
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+<h2>Customer Reviews</h2>
+
+<div class="review-box">
+<p>"Very fast electrician service. Highly recommended!"</p>
+<h4>- Aman Singh</h4>
+</div>
+
+</section>
+
+<!-- PROVIDER SIGNUP -->
+<section class="provider">
+<h2>Become a Service Provider</h2>
+<p>Join Fixora and grow your business</p>
+<button>Register as Partner</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2026 Fixora | All Rights Reserved</p>
+</footer>
+
+<script>
+
+/* Scroll to booking */
+function scrollToBooking(){
+document.getElementById("booking")
+.scrollIntoView({behavior:"smooth"});
+}
+
+/* Booking Simulation */
+function bookService(){
+
+const service =
+document.getElementById("service").value;
+
+const date =
+document.getElementById("date").value;
+
+const time =
+document.getElementById("time").value;
+
+if(!date || !time){
+alert("Please select date & time");
+return;
+}
+
+alert(
+`Booking Confirmed ✅
+Service: ${service}
+Date: ${date}
+Time: ${time}`
+);
+}
+
+</script>
+
+</body>
+</html>
